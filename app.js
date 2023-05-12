@@ -8,7 +8,7 @@ console.log(number2);
 
 var number= 10;
 
-const button= document.querySelector('button');
+//const button= document.querySelector('button');
 
 //CONDITIONS
 /*
@@ -26,8 +26,18 @@ if (number1 < number2 ) {
 Logical Operators
 &&, ||, !
  */
+if (number1 < number2 && number2===5) {
+    console.log(number1 + number2)
+}
+
+//Ternary Operator
+// condition ? codeIfTrue : codeIfFalse
+number1 < number2 ? console.log(number1 + number2) : console.log(number1 - number2);
+
 
 /*
+Παράδειγμα σύνταξης ενός switch statement, όπου key μπορεί να είναι μια μεταβλητή ή το αποτέλεσμα ενός function.
+Κάθε value αντοιστιχεί σε κάθε condition που θέλουμε να ελέγξουμε. 
 switch (key) {
     case value:
         
@@ -37,6 +47,7 @@ switch (key) {
         break;
 }*/
 
+//ΠΑΡΑΔΕΙΓΜΑ:
 let day = new Date().getDay();
 
 switch (day) {
@@ -62,3 +73,4 @@ switch (day) {
         console.log("Saturday");
         break;
 }
+
