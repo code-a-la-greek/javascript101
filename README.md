@@ -8,3 +8,5 @@
 - ternary operator
 - comparison & logical operators
 - switch statement
+- functions
+- arrow functions
