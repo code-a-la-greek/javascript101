@@ -10,3 +10,4 @@
 - switch statement
 - functions
 - arrow functions
+- arrays

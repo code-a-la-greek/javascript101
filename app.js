@@ -103,6 +103,56 @@ function example(number) {
 // Αν έχετε μία παράμετρο δεν χρειάζονται παρενθέσεις
 // Αν έχετε μία γραμμή κώδικα που θα εκτελεστεί, δεν χρειάζονται οι αγκύλες
 
-let y= number => console.log(number * number);
+let y = number => console.log(number * number);
 
 y(5);
+
+// Arrays
+const fruits = [1, 2, 3, "apple", "banana", "orange"]
+fruits[3] = "pear";
+const firstFruit = fruits[3];
+console.log(firstFruit)
+
+//Μέθοδοι που αλλοιώνουν το αρχικό array
+fruits.push('apple')// αυτό θα προσθέσει την "apple" στο τέλος του array
+fruits.pop()// αυτό θα αφαιρέσει τη τελευταία τιμή του array
+fruits.sort()// αυτό θα ταξινομήσει τo array αλφβητκά
+fruits.reverse()// αυτο θα γυρίσει αντιστροφα τις τιμες του array
+fruits.shift()//αφαιρεί το πρώτο στοιχείο του array
+fruits.unshift('pear')//προσθέτει ένα ή περισσότερα στοιχεία στην αρχή του array
+
+//Μέθοδοι που δεν αλλοιώνουν το array
+console.log(fruits.length) //επιστρέφει το μήκος του array, δηλαδή πόσα στοιχεία έχει
+console.log(fruits[0])
+console.log(fruits[fruits.length - 1]) //επιστρέφει το τελευταίο αντικείμενο του array
+console.log(fruits.indexOf('orange')) //επιστρέφει το δείκτη(index) του αντικείμενο στο array
+console.log(fruits)
+
+//Μέθοδοι που δημιουργούν νέα array. Δεν αλλοιώνουν το αρχικό μας array
+const students = [
+    { name: "Maria", grade: 8 },
+    { name: "Nikos", grade: 4 },
+    { name: "Giannis", grade: 7 },
+    { name: "Eleni", grade: 3 }
+];
+
+
+const passedStudents = students.map(
+    function (student) {
+    if (student.grade >= 5) {
+        return student.name; 
+    }
+}).filter(Boolean);//φιλτράρει τις undefined τιμες
+
+console.log(passedStudents);
+
+const numbers = [1, 2, 3, 4, 5]
+
+//Η array.reduce() μέθοδος προσθέτει τις τιμές. Αν η array περιέχει αριθμους, θα εμφανισει το σύνολο. Αν περιεχει γραμματα/λεξεις, θα τα ενώσει σε μία γραμμη
+const sum= numbers.reduce(
+    function(a,b){
+        return a+b;
+    }
+)
+
+console.log(sum)
