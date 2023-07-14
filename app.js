@@ -187,7 +187,7 @@ const person = {
 
 console.log(person.fullName());
 
-
+// Inheritage of objects
 const animal = {
   name: '',
   legs: 4,
@@ -197,7 +197,7 @@ const animal = {
   }
 };
 
-const dog= Object.create(animal);
+const dog= Object.create(animal); //δημιουργει ενα νέο object με βάση το template μας 
 dog.name='dog';
 dog.sound='Woof';
 
