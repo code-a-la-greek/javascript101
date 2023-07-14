@@ -189,31 +189,71 @@ console.log(person.fullName());
 
 // Inheritage of objects
 const animal = {
-  name: '',
+  name: "",
   legs: 4,
-  sound: '',
-  makeSound: function() {
+  sound: "",
+  makeSound: function () {
     console.log(this.name + " says " + this.sound);
-  }
+  },
 };
 
-const dog= Object.create(animal); //δημιουργει ενα νέο object με βάση το template μας 
-dog.name='dog';
-dog.sound='Woof';
+const dog = Object.create(animal); //δημιουργει ενα νέο object με βάση το template μας
+dog.name = "dog";
+dog.sound = "Woof";
 
 console.log(dog);
 dog.makeSound();
-console.log(dog.legs)
+console.log(dog.legs);
 
 // Factory Functions
-const flower=(name,type,smell)=>{
-    return{
-        name:name,
-        type:type,
-        smell:'nice'
-    }
+const flower = (name, type, smell) => {
+  return {
+    name: name,
+    type: type,
+    smell: "nice",
+  };
 };
 
-const garden= flower('rose','flower');
+const garden = flower("rose", "flower");
 
-console.log(garden)
+console.log(garden);
+
+// LOOPS
+
+for (let index = 0; index < fruits.length; index++) {
+  console.log(fruits[index]);
+}
+
+fruits.forEach((element) => {
+  console.log(element);
+});
+
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+// Loops in Objects
+
+
+const keys = Object.keys(dog);
+
+keys.forEach(key => {
+  const value = dog[key];
+  console.log(key + ":" + value)
+});
+
+
+const values = Object.values(dog);
+
+values.forEach((value) => {
+  console.log(value);
+});
+
+
+for (const key in dog) {
+  if (Object.hasOwnProperty.call(dog, key)) {
+    const element = dog[key];
+    console.log(element)
+  }
+  console.log(dog[key])
+}
