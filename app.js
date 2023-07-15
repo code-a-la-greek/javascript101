@@ -234,14 +234,12 @@ for (const fruit of fruits) {
 
 // Loops in Objects
 
-
 const keys = Object.keys(dog);
 
-keys.forEach(key => {
+keys.forEach((key) => {
   const value = dog[key];
-  console.log(key + ":" + value)
+  console.log(key + ":" + value);
 });
-
 
 const values = Object.values(dog);
 
@@ -249,11 +247,61 @@ values.forEach((value) => {
   console.log(value);
 });
 
-
 for (const key in dog) {
   if (Object.hasOwnProperty.call(dog, key)) {
     const element = dog[key];
-    console.log(element)
+    console.log(element);
   }
-  console.log(dog[key])
+  console.log(dog[key]);
 }
+
+// FETCH
+
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("error");
+    }
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// Async...await
+const getData = async () => {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/todos/2"
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getData();
+
+// Promise all
+const getAllData = async () => {
+  try {
+    const allResults = await Promise.all([
+      fetch("https://jsonplaceholder.typicode.com/todos/3"),
+      fetch("https://jsonplaceholder.typicode.com/todos/4"),
+      fetch("https://jsonplaceholder.typicode.com/todos/5"),
+    ]);
+    const dataPromises = allResults.map((results) => results.json());
+    const data = await Promise.all(dataPromises);
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+getAllData();
