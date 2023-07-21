@@ -272,11 +272,12 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
     console.log(error);
   });
 
-// Async...await
+// Async....await
+
 const getData = async () => {
   try {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/2"
+      "https://jsonplaceholder.typicode.com/todos/1"
     );
     const data = await response.json();
     console.log(data);
@@ -286,22 +287,26 @@ const getData = async () => {
   }
 };
 
-getData();
+getData().then((data) => {
+  console.log(data);
+});
 
-// Promise all
-const getAllData = async () => {
+// Promise All
+
+const getAll = async () => {
   try {
-    const allResults = await Promise.all([
+    const res = await Promise.all([
+      fetch("https://jsonplaceholder.typicode.com/todos/1"),
+      fetch("https://jsonplaceholder.typicode.com/todos/2"),
       fetch("https://jsonplaceholder.typicode.com/todos/3"),
-      fetch("https://jsonplaceholder.typicode.com/todos/4"),
-      fetch("https://jsonplaceholder.typicode.com/todos/5"),
     ]);
-    const dataPromises = allResults.map((results) => results.json());
+    const dataPromises = res.map((result) => result.json());
     const data = await Promise.all(dataPromises);
     console.log(data);
+    return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
-getAllData();
+getAll();
