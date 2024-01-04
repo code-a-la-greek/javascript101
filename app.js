@@ -187,7 +187,7 @@ const person = {
 
 console.log(person.fullName());
 
-// Inheritage of objects
+// Inheritance of objects
 const animal = {
   name: "",
   legs: 4,
@@ -310,3 +310,6 @@ const getAll = async () => {
 };
 
 getAll();
+
+// DOM
+document.querySelector("p").innerText = "Hello Moto!";
